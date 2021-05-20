@@ -3,13 +3,13 @@
          <div id="formContent">
         <h3>{{msg}}</h3>
         <form action="">
-                  <label for="">First name:</label>
+                  <label for="">Type firstname</label>
                   <input type="text">
-                  <label for="">Last name:</label>
+                  <label for="">Type lastname</label>
                   <input type="text">
-                  <label for="">E-mmail adress:</label>
+                  <label for="">Type e-mail adress</label>
                   <input type="text">
-                  <label for="">Password:</label>
+                  <label for="">Type password</label>
                   <input type="text">
                   <input value="Create manager" type="submit">
         </form>
