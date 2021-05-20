@@ -1,55 +1,83 @@
 <template>
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <h3>Edit your details</h3>
-            <form>
+<!-- //Source: https://getbootstrap.com/docs/4.3/components/collapse/ -->
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <h3>Edit your details</h3>
+              </button>
+            </h2>
+          </div>
+
+          <div
+            id="collapseOne"
+            class="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <form>
                 <label>Type your firstname</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your lastname</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your e-mail</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your phoneNo</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your address</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your address2</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your postalcode</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your City</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your Country</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your birthdate</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your nationality</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your height</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your shoesize</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your haircolor</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your eyecolor</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Do you have any comments?</label>
-                <input type="Text">
+                <input type="Text" />
                 <label>Type your password</label>
-                <input type="Text">
-                <input type="submit" value="Save your profile">
-            </form>
+                <input type="Text" />
+                <input type="submit" value="Save your profile" />
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            msg: 'Modeldetails'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Modeldetails",
+    };
+  },
+};
 </script>
 <style scoped>
 body {

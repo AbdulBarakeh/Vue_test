@@ -1,4 +1,5 @@
 <template>
+<!-- //SOURCE of design: https://bootsnipp.com/snippets/dldxB -->
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/jobs">Jobs</router-link>|
