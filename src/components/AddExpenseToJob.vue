@@ -1,18 +1,30 @@
 <template>
     <div class="wrapper fadeInDown">
-         <div id="formContent">
-        {{msg}}
-         </div>
+      <div id="formContent">
+        <h3>Add Expense to job</h3>
+          
+        <form>
+          <select name="" id="">
+            <option value="">Choose job to add expense</option>
+          </select><br>
+          <label>Put your expense on the job here: </label>
+          <input
+          type="Text"
+          />
+          <input type="submit" value="Add Expense">
+
+        </form>
+      </div>
     </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            msg: 'AddExpenseToJobs'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "AddExpenseToJobs",
+    };
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

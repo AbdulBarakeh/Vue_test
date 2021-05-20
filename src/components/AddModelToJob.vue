@@ -1,7 +1,18 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
-        {{msg}}
+        <h3>Add a model to a Job</h3>
+        
+        <form>
+          <select name="" id="">
+          <option value="">Choose the job</option>
+        </select><br>
+          <label>Wich model would you like to add?</label><br>
+          <select name="" id="">
+            <option value="">Our models</option>
+            </select><br>
+            <input type="submit" value="Add model to job">
+        </form>
          </div>
     </div>
 </template>
