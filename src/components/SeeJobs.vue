@@ -1,18 +1,27 @@
 <template>
-    <div class="wrapper fadeInDown">
-         <div id="formContent">
-        {{msg}}
-         </div>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      {{ msg }}
+      <ul>
+        <li v-bind:key="hul.value1" v-for="hul in ost">
+          {{ hul.val1 }}
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 <script>
+// import Job from '../Models/Job.js'
 export default {
-    data(){
-        return{
-            msg: 'Jobs'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Jobs",
+      ost: [{ val1: "something" }, { val1: "something2" }],
+      
+    };
+  },
+};
+// jobs:[{new Job(1,"something",new Date(),2,"Aarhus","comment",models)},new Job()]
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

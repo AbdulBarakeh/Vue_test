@@ -1,8 +1,9 @@
 class Job{
-    constructor(JobId, Customer, StartDate, Location, Comments, Models){
+    constructor(JobId, Customer, StartDate, Days, Location, Comments, Models){
         this.JobId = JobId;
         this.Customer = Customer;
         this.StartDate = StartDate;
+        this.Days = Days;
         this.Location = Location;
         this.Comments = Comments;
         this.Models = Models;
@@ -18,6 +19,9 @@ class Job{
 
     getStartDate = function(){
         return this.StartDate;
+    }
+    getDays = function(){
+        return this.Days;
     }
 
     getLocation = function(){
@@ -42,6 +46,9 @@ class Job{
 
     setStartDate = function(date){
         this.StartDate = date;
+    }
+    setDays = function(days){
+        this.Days = days;
     }
 
     setLocation = function(location){

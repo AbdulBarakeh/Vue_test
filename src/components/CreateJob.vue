@@ -1,7 +1,22 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
-          {{msg}}
+                  <h3>{{msg}}</h3>
+        <form action="">
+                  <label for="">Job ID:</label>
+                  <input type="text">
+                  <label for="">Customer:</label>
+                  <input type="text">
+                  <label for="">Start date:</label>
+                  <input type="text">
+                  <label for="">Days:</label>
+                  <input type="text">
+                  <label for="">Location:</label>
+                  <input type="text">
+                  <label for="">Models:</label>
+                  <input type="text">
+                  <input value="Create job" type="submit">
+        </form>
          </div>
     </div>
 </template>
@@ -9,7 +24,7 @@
 export default {
     data(){
         return{
-            msg: 'CreateJob'
+            msg: 'Create Job'
         }
     }
 }

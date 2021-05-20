@@ -13,7 +13,7 @@
 import SeeJobs from '@/components/SeeJobs.vue'
 
 export default {
-  name: 'Home',
+  name: 'Jobs',
   components: {
     SeeJobs,
   }

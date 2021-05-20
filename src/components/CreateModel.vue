@@ -1,7 +1,18 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
-        {{msg}}
+                <h3>{{msg}}</h3>
+        <form action="">
+                  <label for="">First name:</label>
+                  <input type="text">
+                  <label for="">Last name:</label>
+                  <input type="text">
+                  <label for="">E-mmail adress:</label>
+                  <input type="text">
+                  <label for="">Phone number:</label>
+                  <input type="text">
+                  <input value="Create model" type="submit">
+        </form>
          </div>
     </div>
 </template>
@@ -9,7 +20,7 @@
 export default {
     data(){
         return{
-            msg: 'CreateModel'
+            msg: 'Create Model'
         }
     }
 }
