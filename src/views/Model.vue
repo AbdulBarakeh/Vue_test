@@ -1,21 +1,27 @@
 <template>
   <div class="model">
-    <div >
-          <AddExpenseToJob/>
-    </div>
 
+  
+  <div >
+        <AddExpenseToJob/>
+        <Modeldetails/>
+  </div>
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AddExpenseToJob from "@/components/AddExpenseToJob.vue";
+
+import AddExpenseToJob from '@/components/AddExpenseToJob.vue'
+import Modeldetails from '@/components/Modeldetails.vue'
 
 export default {
   name: "Model",
   components: {
-    AddExpenseToJob,
-  },
-};
+
+    AddExpenseToJob, Modeldetails
+  }
+}
+
 </script>
