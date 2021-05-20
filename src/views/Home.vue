@@ -1,9 +1,9 @@
 <template>
   <div class="home">
   
-  <div class="d-flex flex-row">
-        <Login class="p-2"/>
-    <Register class="p-2"/>
+  <div >
+        <Login />
+    <Register />
   </div>
 
   </div>

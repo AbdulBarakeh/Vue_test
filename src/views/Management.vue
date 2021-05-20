@@ -1,12 +1,12 @@
 <template>
   <div class="management">
-    <div class="d-flex flex-row">
-      <CreateJob class="p-2" />
-      <CreateManager class="p-2" />
-      <CreateModel class="p-2" />
-      <AddModelToJob class="p-2" />
-      <AddExpenseToJob class="p-2" />
-      <RemoveModelFromJob class="p-2" />
+    <div>
+      <CreateJob />
+      <CreateManager />
+      <CreateModel />
+      <AddModelToJob />
+      <AddExpenseToJob />
+      <RemoveModelFromJob />
     </div>
   </div>
 </template>

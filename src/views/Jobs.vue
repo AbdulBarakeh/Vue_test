@@ -1,8 +1,8 @@
 <template>
   <div class="jobs">
   
-  <div class="d-flex flex-row">
-    <SeeJobs class="p-2"/>
+  <div >
+    <SeeJobs />
   </div>
 
   </div>
