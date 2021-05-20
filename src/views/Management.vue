@@ -5,7 +5,6 @@
       <CreateManager />
       <CreateModel />
       <AddModelToJob />
-      <AddExpenseToJob />
       <RemoveModelFromJob />
     </div>
   </div>
@@ -17,7 +16,6 @@ import CreateJob from "@/components/CreateJob.vue";
 import CreateManager from "@/components/CreateManager.vue";
 import CreateModel from "@/components/CreateModel.vue";
 import AddModelToJob from "@/components/AddModelToJob.vue";
-import AddExpenseToJob from "@/components/AddExpenseToJob.vue";
 import RemoveModelFromJob from "@/components/RemoveModelFromJob.vue";
 
 export default {
@@ -27,7 +25,6 @@ export default {
     CreateManager,
     CreateModel,
     AddModelToJob,
-    AddExpenseToJob,
     RemoveModelFromJob,
   },
 };

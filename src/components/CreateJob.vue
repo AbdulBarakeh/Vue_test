@@ -3,17 +3,17 @@
          <div id="formContent">
                   <h3>{{msg}}</h3>
         <form action="">
-                  <label for="">Job ID:</label>
+                  <label for="">Type job id</label><br>
                   <input type="text">
-                  <label for="">Customer:</label>
+                  <label for="">Type the customer</label>
                   <input type="text">
-                  <label for="">Start date:</label>
+                  <label for="">Type the start date:</label>
                   <input type="text">
-                  <label for="">Days:</label>
+                  <label for="">Type number of days</label>
                   <input type="text">
-                  <label for="">Location:</label>
+                  <label for="">Type the location</label>
                   <input type="text">
-                  <label for="">Models:</label>
+                  <label for="">Type the models</label>
                   <input type="text">
                   <input value="Create job" type="submit">
         </form>
