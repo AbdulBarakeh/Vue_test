@@ -1,7 +1,17 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
-        {{msg}}
+        <h3>{{msg}}</h3>
+        <form action="">
+          <select name="" id="">
+            <option value="">Choose a job</option>
+          </select><br>
+          <label for="">Wich model would you like to remove?</label><br>
+          <select name="" id="">
+            <option value="">Models assigned to job</option>
+          </select>
+          <input type="submit" value="Remove model from the job">
+        </form>
          </div>
     </div>
 </template>
@@ -9,7 +19,7 @@
 export default {
     data(){
         return{
-            msg: 'RemoveModelFromJob'
+            msg: 'Remove a model from a job'
         }
     }
 }

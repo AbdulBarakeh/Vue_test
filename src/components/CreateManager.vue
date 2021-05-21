@@ -1,30 +1,54 @@
 <template>
-    <div class="wrapper fadeInDown">
-         <div id="formContent">
-        <h3>{{msg}}</h3>
-        <form action="">
-                  <label for="">Type firstname</label>
-                  <input type="text">
-                  <label for="">Type lastname</label>
-                  <input type="text">
-                  <label for="">Type e-mail adress</label>
-                  <input type="text">
-                  <label for="">Type password</label>
-                  <input type="text">
-                  <input value="Create manager" type="submit">
-        </form>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button
+              class="btn btn-link"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              <h3>{{ msg }}</h3>
+            </button>
+          </h2>
+        </div>
 
-         </div>
+        <div
+          id="collapseThree"
+          class="collapse"
+          aria-labelledby="headingOne"
+          data-parent="#accordionExample"
+        >
+          <div class="card-body">
+            <form>
+              <label for="">Type firstname</label>
+              <input type="text" />
+              <label for="">Type lastname</label>
+              <input type="text" />
+              <label for="">Type e-mail adress</label>
+              <input type="text" />
+              <label for="">Type password</label>
+              <input type="text" />
+              <input value="Create manager" type="submit" />
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            msg: 'Create Manager'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Create a Manager",
+    };
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

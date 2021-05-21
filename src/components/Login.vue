@@ -13,7 +13,6 @@
             v-model="email"
             type="text"
             id="email"
-            class="fadeIn second"
             name="email"
             placeholder="email"
           />
@@ -21,14 +20,12 @@
             v-model="password"
             type="text"
             id="password"
-            class="fadeIn third"
             name="password"
             placeholder="password"
           />
           <input
             v-on:click="login"
             type="submit"
-            class="fadeIn fourth"
             value="Log In"
           />
         </form>

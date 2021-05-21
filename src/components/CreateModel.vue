@@ -1,9 +1,32 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
+           <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
                 <h3>{{msg}}</h3>
-        <form action="">
-                  <label for="">Type firstname</label>
+              </button>
+            </h2>
+          </div>
+
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <form>
+                <label for="">Type firstname</label>
                   <input type="text">
                   <label for="">Type lastname</label>
                   <input type="text">
@@ -12,18 +35,22 @@
                   <label for="">Type phone number</label>
                   <input type="text">
                   <input value="Create model" type="submit">
-        </form>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
          </div>
     </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            msg: 'Create Model'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Create a Model",
+    };
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

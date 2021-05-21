@@ -1,11 +1,12 @@
 <template>
   <div class="management">
     <div>
-      <CreateJob />
-      <CreateManager />
-      <CreateModel />
       <AddModelToJob />
       <RemoveModelFromJob />
+      <CreateJob />
+      <CreateModel />
+      <CreateManager />
+      
     </div>
   </div>
 </template>

@@ -1,17 +1,17 @@
 <template>
     <div class="wrapper fadeInDown">
          <div id="formContent">
-        <h3>Add a model to a Job</h3>
-        
+        <h3>{{msg}}</h3>
+       
         <form>
           <select name="" id="">
-          <option value="">Choose the job</option>
+          <option value="">Choose a job</option>
         </select><br>
           <label>Wich model would you like to add?</label><br>
           <select name="" id="">
             <option value="">Our models</option>
             </select><br>
-            <input type="submit" value="Add model to job">
+            <input type="submit" value="Add model to the job">
         </form>
          </div>
     </div>
@@ -20,7 +20,7 @@
 export default {
     data(){
         return{
-            msg: 'AddModelToJob'
+            msg: 'Add a model to a job'
         }
     }
 }

@@ -1,33 +1,60 @@
 <template>
-    <div class="wrapper fadeInDown">
-         <div id="formContent">
-                  <h3>{{msg}}</h3>
-        <form action="">
-                  <label for="">Type job id</label><br>
-                  <input type="text">
-                  <label for="">Type the customer</label>
-                  <input type="text">
-                  <label for="">Type the start date</label>
-                  <input type="text">
-                  <label for="">Type number of days</label>
-                  <input type="text">
-                  <label for="">Type the location</label>
-                  <input type="text">
-                  <label for="">Type the models</label>
-                  <input type="text">
-                  <input value="Create job" type="submit">
-        </form>
-         </div>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+              >
+                <h3>{{msg}}</h3>
+              </button>
+            </h2>
+          </div>
+
+          <div
+            id="collapseOne"
+            class="collapse"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <form>
+                <label for="">Type job id</label><br />
+                <input type="text" />
+                <label for="">Type the customer</label>
+                <input type="text" />
+                <label for="">Type the start date</label>
+                <input type="text" />
+                <label for="">Type number of days</label>
+                <input type="text" />
+                <label for="">Type the location</label>
+                <input type="text" />
+                <label for="">Type the models</label>
+                <input type="text" />
+                <input value="Create job" type="submit" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
-    data(){
-        return{
-            msg: 'Create Job'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Create a Job",
+    };
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
