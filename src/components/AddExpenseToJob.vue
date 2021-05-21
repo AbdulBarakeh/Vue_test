@@ -130,11 +130,5 @@ export default {
   },
 };
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-@import url('./assets/style.css');
-/* BASIC */
 
-
-</style>
 
