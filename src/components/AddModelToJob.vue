@@ -1,29 +1,82 @@
 <template>
-    <div class="wrapper fadeInDown">
-         <div id="formContent">
-        <h3>{{msg}}</h3>
-       
-        <form>
-          <select name="" id="">
-          <option value="">Choose a job</option>
-        </select><br>
-          <label>Wich model would you like to add?</label><br>
-          <select name="" id="">
-            <option value="">Our models</option>
-            </select><br>
-            <input type="submit" value="Add model to the job">
-        </form>
-         </div>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <h3>{{ msg }}</h3>
+
+      <form>
+        <select name="jobs" id="jobs">
+          <option value="" v-bind:key="job.value1" v-for="job in jobs">{{job.customer}} - {{job.location}}</option></select
+        ><br />
+        <label>Wich model would you like to add?</label><br />
+        <select name="models" id="models">
+          <option value="" v-bind:key="model.value1" v-for="model in models">{{model.firstName}} {{model.lastName}}</option></select
+        ><br />
+        <input type="submit" value="Add model to the job" />
+      </form>
     </div>
+  </div>
 </template>
 <script>
+import axios from "axios";
 export default {
-    data(){
-        return{
-            msg: 'Add a model to a job'
-        }
-    }
-}
+  data() {
+    return {
+      msg: "Add a model to a job",
+      jobs: [],
+      models: [],
+    };
+  },
+  methods: {
+    getjobs() {
+      let url = "https://localhost:44368/api/Jobs";
+      axios
+        .get(url, {
+          method: "GET", // Or DELETE
+          credentials: "include",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((res) => {
+          this.jobs = res.data;
+          console.log(res.data);
+        })
+        .catch((error) => {
+          if (error.status === 401) {
+            alert("unautherized please login");
+          } else {
+            alert("Something bad happened" + error);
+          }
+        });
+    },
+    getmodels() {
+      let url = "https://localhost:44368/api/Models";
+      axios
+        .get(url, {
+          method: "GET", // Or DELETE
+          credentials: "include",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((res) => {
+          this.models = res.data;
+          console.log(res.data);
+        })
+        .catch((error) => {
+          if (error.status === 401) {
+            alert("unautherized please login");
+          } else {
+            alert("Something bad happened" + error);
+          }
+        });
+    },
+  },
+  mounted() {
+    this.getjobs();
+    this.getmodels();
+  },
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
