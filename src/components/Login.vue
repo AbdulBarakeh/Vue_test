@@ -18,7 +18,7 @@
           />
           <input
             v-model="password"
-            type="text"
+            type="password"
             id="password"
             name="password"
             placeholder="password"
@@ -32,7 +32,7 @@
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-          <a class="underlineHover" href="#">Forgot Password?{{email}}</a>
+          <a class="underlineHover" href="#">Forgot Password?</a>
         </div>
       </div>
     </div>
@@ -51,20 +51,25 @@ export default {
   },
   methods: {
     async login() {
+      let form = {email: this.email,password: this.password};
       let url = "https://localhost:44368/api/account/login";
       try {
         let response = await fetch(url, {
           method: "POST",
-          body: JSON.stringify(this.form), // Assumes data is in an object called form
+          body: JSON.stringify(form), // Assumes data is in an object called form
           headers: new Headers({
             "Content-Type": "application/json",
           }),
         });
         if (response.ok) {
-          let token = await response.json();
-          localStorage.setItem("token", token.jwt);
+          
+          let res = await response.json();
+          console.log(res)
+          localStorage.setItem("token", res.token.jwt);
+          localStorage.setItem("isManager", res.isManager);
           // Change view to some other component
           // …
+          
         } else {
           alert("Server returned: " + response.statusText);
         }
@@ -191,7 +196,7 @@ input[type="reset"]:active {
   transform: scale(0.95);
 }
 
-input[type="text"] {
+input[type="text"],input[type="password"] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -212,12 +217,12 @@ input[type="text"] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,input[type="password"]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type="text"]:placeholder {
+input[type="text"]:placeholder,input[type="password"]:placeholder {
   color: #cccccc;
 }
 
