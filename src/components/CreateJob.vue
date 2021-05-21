@@ -13,7 +13,7 @@
                 aria-expanded="false"
                 aria-controls="collapseOne"
               >
-                <h3>{{msg}}</h3>
+                <h3>{{ msg }}</h3>
               </button>
             </h2>
           </div>
@@ -26,19 +26,21 @@
           >
             <div class="card-body">
               <form>
-                <label for="">Type job id</label><br />
-                <input type="text" />
                 <label for="">Type the customer</label>
-                <input type="text" />
+                <input type="text" v-model="customer" />
                 <label for="">Type the start date</label>
-                <input type="text" />
+                <input type="text" v-model="date" />
                 <label for="">Type number of days</label>
-                <input type="text" />
+                <input type="text" v-model="days" />
                 <label for="">Type the location</label>
-                <input type="text" />
-                <label for="">Type the models</label>
-                <input type="text" />
-                <input value="Create job" type="submit" />
+                <input type="text" v-model="locate" />
+                <label for="">Type comments</label>
+                <input type="text" v-model="comment" />
+                <input
+                  value="Create job"
+                  type="submit"
+                  v-on:click="createJob"
+                />
               </form>
             </div>
           </div>
@@ -48,11 +50,51 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       msg: "Create a Job",
+      customer: "",
+      date: "",
+      days: "",
+      locate: "",
+      comment: "",
     };
+  },
+  methods: {
+    createJob() {
+      
+      let form = {
+        customer: this.customer,
+        date: this.date,
+        days: this.days,
+        locate: this.locate,
+        comment: this.comment,
+      };
+      let url = "https://localhost:44368/api/Jobs";
+      axios
+        .post(url, {
+          method: "Post",
+          body: JSON.stringify(form),
+          credentials: "include",
+          headers: {
+            Authorization: "Bearer" + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          this.jobs = res.data;
+          console.log(res.data);
+        })
+        .catch((error) => {
+          if (error.status === 401) {
+            alert("unautherized please login");
+          } else {
+            alert("Something bad happened" + error);
+          }
+        });
+    },
   },
 };
 </script>
