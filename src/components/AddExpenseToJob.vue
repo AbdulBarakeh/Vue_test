@@ -7,10 +7,12 @@
           <select name="" id="">
             <option value="">Choose job to add expense</option>
           </select><br>
-          <label>Put your expense on the job here: </label>
+          <label>Put your expense on the job here</label>
           <input
           type="Text"
           />
+          <label>What is the expense used on?</label>
+          <input type="text">
           <input type="submit" value="Add Expense">
 
         </form>

@@ -7,7 +7,7 @@
                   <input type="text">
                   <label for="">Type the customer</label>
                   <input type="text">
-                  <label for="">Type the start date:</label>
+                  <label for="">Type the start date</label>
                   <input type="text">
                   <label for="">Type number of days</label>
                   <input type="text">
