@@ -75,7 +75,7 @@ export default {
       let url = "https://localhost:44368/api/Jobs";
       axios
         .post(url, {
-          method: "Post",
+          method: "POST",
           body: JSON.stringify(form),
           credentials: "include",
           headers: {
