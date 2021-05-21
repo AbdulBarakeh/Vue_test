@@ -27,15 +27,15 @@
             <div class="card-body">
               <form>
                 <label for="">Type the customer</label>
-                <input type="text" v-model="customer" />
+                <input type="text" v-model="Customer" />
                 <label for="">Type the start date</label>
-                <input type="text" v-model="date" />
+                <input type="date" v-model="StartDate" />
                 <label for="">Type number of days</label>
-                <input type="text" v-model="days" />
+                <input type="number" v-model="Days" />
                 <label for="">Type the location</label>
-                <input type="text" v-model="locate" />
+                <input type="text" v-model="Location" />
                 <label for="">Type comments</label>
-                <input type="text" v-model="comment" />
+                <input type="text" v-model="Comments" />
                 <input
                   value="Create job"
                   type="submit"
@@ -55,34 +55,29 @@ export default {
   data() {
     return {
       msg: "Create a Job",
-      customer: "",
-      date: "",
-      days: "",
-      locate: "",
-      comment: "",
+      Customer: "",
+      StartDate: "",
+      Days: "",
+      Location: "",
+      Comments: "",
     };
   },
   methods: {
     createJob() {
-      
-      let form = {
-        customer: this.customer,
-        date: this.date,
-        days: this.days,
-        locate: this.locate,
-        comment: this.comment,
+      console.dir(this.StartDate);
+      var form = {
+        Customer: this.Customer,
+        StartDate: new Date(this.StartDate).toISOString(),
+        Days: Number(this.Days),
+        Location: this.Location,
+        Comments: this.Comments,
       };
+      console.log(form);
       let url = "https://localhost:44368/api/Jobs";
-      axios
-        .post(url, {
-          method: "Post",
-          body: JSON.stringify(form),
-          credentials: "include",
-          headers: {
-            Authorization: "Bearer" + localStorage.getItem("token"),
-            "Content-Type": "application/json",
-          },
-        })
+       axios
+        .post(url, form,{headers:{
+          Authorization: "Bearer " + localStorage.getItem("token")
+        }})
         .then((res) => {
           this.jobs = res.data;
           console.log(res.data);
