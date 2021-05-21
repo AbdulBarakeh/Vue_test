@@ -4,7 +4,7 @@
       <AddModelToJob />
       <RemoveModelFromJob />
       <CreateJob />
-      <CreateModel />
+      <Modeldetails/>
       <CreateManager />
       
     </div>
@@ -15,7 +15,7 @@
 // @ is an alias to /src
 import CreateJob from "@/components/CreateJob.vue";
 import CreateManager from "@/components/CreateManager.vue";
-import CreateModel from "@/components/CreateModel.vue";
+import Modeldetails from "@/components/Modeldetails.vue";
 import AddModelToJob from "@/components/AddModelToJob.vue";
 import RemoveModelFromJob from "@/components/RemoveModelFromJob.vue";
 
@@ -24,7 +24,7 @@ export default {
   components: {
     CreateJob,
     CreateManager,
-    CreateModel,
+    Modeldetails,
     AddModelToJob,
     RemoveModelFromJob,
   },
