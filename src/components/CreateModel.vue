@@ -49,6 +49,7 @@ export default {
   name: "CreateModel",
   data(){
     return{
+      msg: "Create a model",
       modelFirstName:"",
       modelLastName:"",//goddav
       modelEmail:"",
@@ -58,7 +59,7 @@ export default {
 
 methods:{
   async addModel(){
-    let form = {modelFirstName: this.modelFirstName, modelLastName: this.modelLastName, modelEmail: this.modelPhoneNumber, modelPhoneNumber: this.modelPhoneNumber};
+    let form = {modelFirstName: this.modelFirstName, modelLastName: this.modelLastName, modelEmail: this.modelEmail, modelPhoneNumber: this.modelPhoneNumber};
     let url = "https://localhost:44368/api/models";
     try{
       let response = await fetch(url,{

@@ -26,13 +26,13 @@
           <div class="card-body">
             <form>
               <label for="">Type firstname</label>
-              <input type="text" />
+              <input type="text" v-model="FirstName" />
               <label for="">Type lastname</label>
-              <input type="text" />
+              <input type="text" v-model="LastName"/>
               <label for="">Type e-mail adress</label>
-              <input type="text" />
+              <input type="text" v-model="Email"/>
               <label for="">Type password</label>
-              <input type="text" />
+              <input type="text" v-model="Password"/>
               <input value="Create manager" type="submit" />
             </form>
           </div>
@@ -46,7 +46,38 @@ export default {
   data() {
     return {
       msg: "Create a Manager",
+      FirstName:"",
+      LastName:"",
+      Email:"",
+      Password:"",
     };
+  },
+  methods:{
+  async addManager(){
+    let form = {FirstName: this.FirstName, LastName: this.LastName, Email: this.Email, Password: this.Password};
+    let url = "https://localhost:44368/api/manager";
+    try{
+      let response = await fetch(url,{
+        method: "POST",
+        body: JSON.stringify(form),
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        }),
+      });
+    if(response.ok){
+      let res  = await response.json();
+      console.log(res)
+      localStorage.setItem("token", res.token.jwt);
+      localStorage.setItem("isManager",res.isManager);
+    } else{
+      alert("Server returned: " + response.statusText);
+    }
+    }catch (err){
+      alert("Error: " + err);
+    }
+    return;
+    },
   },
 };
 </script>
