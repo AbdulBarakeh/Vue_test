@@ -12,7 +12,6 @@
   </div>
 </template>
 <script>
-// import Job from '../Models/Job.js'
 import axios from 'axios'
 export default {
   data() {
