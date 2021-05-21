@@ -27,13 +27,13 @@
             <div class="card-body">
               <form>
                 <label for="">Type firstname</label>
-                  <input type="text">
+                  <input type="text" v-model="modelFirstName">
                   <label for="">Type lastname</label>
-                  <input type="text">
+                  <input type="text" v-model="modelLastName">
                   <label for="">Type e-mail adress</label>
-                  <input type="text">
+                  <input type="text" v-model="modelEmail">
                   <label for="">Type phone number</label>
-                  <input type="text">
+                  <input type="text" v-model="modelPhoneNumber">
                   <input value="Create model" type="submit">
               </form>
             </div>
@@ -44,13 +44,55 @@
     </div>
 </template>
 <script>
+
 export default {
-  data() {
-    return {
-      msg: "Create a Model",
+  name: "CreateModel",
+  data(){
+    return{
+      modelFirstName:"",
+      modelLastName:"",
+      modelEmail:"",
+      modelPhoneNumber:""
     };
+},
+
+methods:{
+  async addModel(){
+    let form = {modelFirstName: this.modelFirstName, modelLastName: this.modelLastName, modelEmail: this.modelPhoneNumber, modelPhoneNumber: this.modelPhoneNumber};
+    let url = "https://localhost:44368/api/models";
+    try{
+      let response = await fetch(url,{
+        method: "POST",
+        body: JSON.stringify(form),
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        }),
+      });
+    if(response.ok){
+      let res  = await response.json();
+      console.log(res)
+      localStorage.setItem("token", res.token.jwt);
+      localStorage.setItem("isManager",res.isManager);
+    } else{
+      alert("Server returned: " + response.statusText);
+    }
+    }catch (err){
+      alert("Error: " + err);
+    }
+    return;
+    },
   },
 };
+
+
+
+
+
+
+
+
+
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
