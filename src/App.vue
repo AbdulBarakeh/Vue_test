@@ -1,5 +1,4 @@
 <template>
-<!-- //SOURCE of design: https://bootsnipp.com/snippets/dldxB -->
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/jobs">Jobs</router-link>|
@@ -12,17 +11,9 @@
 export default {
   data(){
     return{
-      // isManager: true
     }
   },
-  // mounted(){
-  //     var manager = localStorage.getItem('isManager');
-  //     if(manager){
-  //       this.isManager = true;
-  //     }else{
-  //       this.isManager = false;
-  //     }
-  // }
+
 }
 </script>
 <style>
