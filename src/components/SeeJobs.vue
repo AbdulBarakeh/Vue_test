@@ -1,24 +1,41 @@
 <template>
   <div class="wrapper fadeInDown">
     <div id="formContent">
-      {{ msg }}
+      <h3>{{ msg }}</h3>
       <ul>
-        <li v-bind:key="hul.value1" v-for="hul in ost">
-          {{ hul.val1 }}
+        <li style="list-style-type: none;" v-bind:key="job.value1" v-for="job in jobs">
+          {{ job.efJobId}} - {{ job.customer}} - {{ job.startDate}} - {{ job.days}} - {{ job.location}} - {{ job.jobModels}}
         </li>
       </ul>
     </div>
+
   </div>
 </template>
 <script>
 // import Job from '../Models/Job.js'
+import axios from 'axios'
 export default {
   data() {
     return {
       msg: "Jobs",
-      ost: [{ val1: "something" }, { val1: "something2" }],
-      
+      jobs: [],
     };
+  },
+
+  mounted() {
+let url = "https://localhost:44368/api/Jobs";
+      axios.get(url,{
+        method: "GET", // Or DELETE
+        credentials: "include",
+        headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+          }}).then((res =>{this.jobs = res.data; console.log(res.data);}))
+        .catch((error) =>{ 
+          if(error.status===401){
+            alert("unautherized please login")
+          }else{
+            alert("Something bad happened" + error)
+        }});
   },
 };
 // jobs:[{new Job(1,"something",new Date(),2,"Aarhus","comment",models)},new Job()]
@@ -66,8 +83,7 @@ h2 {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
-  width: 90%;
-  max-width: 450px;
+  width: 60%;
   position: relative;
   padding: 0px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);

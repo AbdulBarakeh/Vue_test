@@ -8,7 +8,23 @@
       </div>
   <router-view/>
 </template>
-
+<script>
+export default {
+  data(){
+    return{
+      // isManager: true
+    }
+  },
+  // mounted(){
+  //     var manager = localStorage.getItem('isManager');
+  //     if(manager){
+  //       this.isManager = true;
+  //     }else{
+  //       this.isManager = false;
+  //     }
+  // }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
