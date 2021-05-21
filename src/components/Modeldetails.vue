@@ -96,7 +96,7 @@ export default {
     };
   },
   methods: {
-    addModel() {
+    addModel(e) {
       var form = {
         FirstName: this.FirstName,
         LastName: this.LastName,
@@ -107,10 +107,10 @@ export default {
         Zip: this.Zip,
         City: this.City,
         Country: this.Country,
-        Birthdate: Date(this.Birthdate),
+        Birthdate: new Date(this.Birthdate).toISOString(),
         Nationality: this.Nationality,
-        Height: Number(this.Height),
-        ShoeSize: Number(this.ShoeSize),
+        Height:  Number(this.Height),
+        ShoeSize:  Number(this.ShoeSize),
         HairColor: this.HairColor,
         EyeColor: this.EyeColor,
         Comments: this.Comments,
@@ -133,6 +133,8 @@ export default {
             alert("Something bad happened" + error);
           }
         });
+      e.preventDefault();
+
     },
   },
 };
