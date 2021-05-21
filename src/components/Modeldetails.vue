@@ -46,13 +46,13 @@
                 <label>Type your Country</label>
                 <input type="Text" v-model="Country" />
                 <label>Type your birthdate</label>
-                <input type="Text" v-model="Birthdate" />
+                <input type="date" v-model="Birthdate" />
                 <label>Type your nationality</label>
                 <input type="Text" v-model="Nationality" />
                 <label>Type your height</label>
-                <input type="Text" v-model="Height" />
+                <input type="number" v-model="Height" />
                 <label>Type your shoesize</label>
-                <input type="Text" v-model="ShoeSize" />
+                <input type="number" v-model="ShoeSize" />
                 <label>Type your haircolor</label>
                 <input type="Text" v-model="HairColor" />
                 <label>Type your eyecolor</label>
@@ -61,11 +61,7 @@
                 <input type="Text" v-model="Comments" />
                 <label>Type your password</label>
                 <input type="Text" v-model="Password" />
-                <input
-                  type="submit"
-                  value="Save your profile"
-                  v-on:click="addModel"
-                />
+                <input type="submit" value="Save model" v-on:click="addModel" />
               </form>
             </div>
           </div>
@@ -75,6 +71,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -85,7 +82,7 @@ export default {
       PhoneNo: "",
       AddresLine1: "",
       AddresLine2: "",
-      Zip:"",
+      Zip: "",
       City: "",
       Country: "",
       Birthdate: "",
@@ -95,12 +92,12 @@ export default {
       HairColor: "",
       EyeColor: "",
       Comments: "",
-      Password: ""
+      Password: "",
     };
   },
   methods: {
-    async addModel() {
-      let form = {
+    addModel() {
+      var form = {
         FirstName: this.FirstName,
         LastName: this.LastName,
         Email: this.Email,
@@ -110,29 +107,32 @@ export default {
         Zip: this.Zip,
         City: this.City,
         Country: this.Country,
-        Birthdate: this.Birthdate,
+        Birthdate: Date(this.Birthdate),
         Nationality: this.Nationality,
-        Height: this.Height,
-        ShoeSize: this.ShoeSize,
+        Height: Number(this.Height),
+        ShoeSize: Number(this.ShoeSize),
         HairColor: this.HairColor,
         EyeColor: this.EyeColor,
         Comments: this.Comments,
-        Password: this.Password
+        Password: this.Password,
       };
-      let url = "https://localhost:44368/api/models";
-      try {
-        await fetch(url, {
-          method: "POST",
-          body: JSON.stringify(form),
-          headers: new Headers({
-            Authorization: "Bearer " + localStorage.getItem("token"),
-            "Content-Type": "application/json",
-          }),
+      console.log(form);
+      let url = "https://localhost:44368/api/Models";
+      axios
+        .post(url, form, {headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+        }})
+        .then((res) => {
+          this.models = res.data;
+          console.log(res.data);
+        })
+        .catch((error) => {
+          if (error.status === 401) {
+            alert("unautherized please login");
+          } else {
+            alert("Something bad happened" + error);
+          }
         });
-      } catch (err) {
-        alert("Error: " + err);
-      }
-      return;
     },
   },
 };
@@ -248,7 +248,9 @@ input[type="reset"]:active {
   transform: scale(0.95);
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"],
+input[type="date"] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;

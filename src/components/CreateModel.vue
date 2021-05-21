@@ -34,7 +34,7 @@
                   <input type="text" v-model="modelEmail">
                   <label for="">Type phone number</label>
                   <input type="text" v-model="modelPhoneNumber">
-                  <input value="Create model" type="submit" v-on:click="addModel">
+                  <input value="Create model" type="submit">
               </form>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default {
 },
 
 methods:{
-  async addModel(){
+  async a(){
     let form = {modelFirstName: this.modelFirstName, modelLastName: this.modelLastName, modelEmail: this.modelEmail, modelPhoneNumber: this.modelPhoneNumber};
     let url = "https://localhost:44368/api/models";
     try{
