@@ -4,7 +4,6 @@
   
   <div >
         <AddExpenseToJob/>
-        <Modeldetails/>
   </div>
 
   </div>
@@ -14,13 +13,12 @@
 // @ is an alias to /src
 
 import AddExpenseToJob from '@/components/AddExpenseToJob.vue'
-import Modeldetails from '@/components/Modeldetails.vue'
 
 export default {
   name: "Model",
   components: {
 
-    AddExpenseToJob, Modeldetails
+    AddExpenseToJob,
   }
 }
 

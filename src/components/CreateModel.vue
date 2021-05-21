@@ -34,7 +34,7 @@
                   <input type="text" v-model="modelEmail">
                   <label for="">Type phone number</label>
                   <input type="text" v-model="modelPhoneNumber">
-                  <input value="Create model" type="submit">
+                  <input value="Create model" type="submit" v-on:click="addModel">
               </form>
             </div>
           </div>
@@ -46,12 +46,11 @@
 <script>
 
 export default {
-  name: "CreateModel",
   data(){
     return{
       msg: "Create a model",
       modelFirstName:"",
-      modelLastName:"",//goddav
+      modelLastName:"",
       modelEmail:"",
       modelPhoneNumber:""
     };
@@ -62,7 +61,7 @@ methods:{
     let form = {modelFirstName: this.modelFirstName, modelLastName: this.modelLastName, modelEmail: this.modelEmail, modelPhoneNumber: this.modelPhoneNumber};
     let url = "https://localhost:44368/api/models";
     try{
-      let response = await fetch(url,{
+      await fetch(url,{
         method: "POST",
         body: JSON.stringify(form),
         headers: new Headers({
@@ -70,14 +69,6 @@ methods:{
           "Content-Type": "application/json",
         }),
       });
-    if(response.ok){
-      let res  = await response.json();
-      console.log(res)
-      localStorage.setItem("token", res.token.jwt);
-      localStorage.setItem("isManager",res.isManager);
-    } else{
-      alert("Server returned: " + response.statusText);
-    }
     }catch (err){
       alert("Error: " + err);
     }
@@ -85,14 +76,6 @@ methods:{
     },
   },
 };
-
-
-
-
-
-
-
-
 
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

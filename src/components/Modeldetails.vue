@@ -1,5 +1,5 @@
 <template>
-<!-- //Source: https://getbootstrap.com/docs/4.3/components/collapse/ -->
+  <!-- //Source: https://getbootstrap.com/docs/4.3/components/collapse/ -->
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <div class="accordion" id="accordionExample">
@@ -10,17 +10,17 @@
                 class="btn btn-link"
                 type="button"
                 data-toggle="collapse"
-                data-target="#collapseOne"
+                data-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseOne"
               >
-                <h3>Edit your details</h3>
+                <h3>{{ msg }}</h3>
               </button>
             </h2>
           </div>
 
           <div
-            id="collapseOne"
+            id="collapseTwo"
             class="collapse"
             aria-labelledby="headingOne"
             data-parent="#accordionExample"
@@ -28,40 +28,44 @@
             <div class="card-body">
               <form>
                 <label>Type your firstname</label>
-                <input type="Text" />
+                <input type="Text" v-model="FirstName" />
                 <label>Type your lastname</label>
-                <input type="Text" />
+                <input type="Text" v-model="LastName" />
                 <label>Type your e-mail</label>
-                <input type="Text" />
+                <input type="Text" v-model="Email" />
                 <label>Type your phoneNo</label>
-                <input type="Text" />
+                <input type="Text" v-model="PhoneNo" />
                 <label>Type your address</label>
-                <input type="Text" />
+                <input type="Text" v-model="AddresLine1" />
                 <label>Type your address2</label>
-                <input type="Text" />
+                <input type="Text" v-model="AddresLine2" />
                 <label>Type your postalcode</label>
-                <input type="Text" />
+                <input type="Text" v-model="Zip" />
                 <label>Type your City</label>
-                <input type="Text" />
+                <input type="Text" v-model="City" />
                 <label>Type your Country</label>
-                <input type="Text" />
+                <input type="Text" v-model="Country" />
                 <label>Type your birthdate</label>
-                <input type="Text" />
+                <input type="Text" v-model="Birthdate" />
                 <label>Type your nationality</label>
-                <input type="Text" />
+                <input type="Text" v-model="Nationality" />
                 <label>Type your height</label>
-                <input type="Text" />
+                <input type="Text" v-model="Height" />
                 <label>Type your shoesize</label>
-                <input type="Text" />
+                <input type="Text" v-model="ShoeSize" />
                 <label>Type your haircolor</label>
-                <input type="Text" />
+                <input type="Text" v-model="HairColor" />
                 <label>Type your eyecolor</label>
-                <input type="Text" />
+                <input type="Text" v-model="EyeColor" />
                 <label>Do you have any comments?</label>
-                <input type="Text" />
+                <input type="Text" v-model="Comments" />
                 <label>Type your password</label>
-                <input type="Text" />
-                <input type="submit" value="Save your profile" />
+                <input type="Text" v-model="Password" />
+                <input
+                  type="submit"
+                  value="Save your profile"
+                  v-on:click="addModel"
+                />
               </form>
             </div>
           </div>
@@ -74,8 +78,62 @@
 export default {
   data() {
     return {
-      msg: "Modeldetails",
+      msg: "Create Model",
+      FirstName: "",
+      LastName: "",
+      Email: "",
+      PhoneNo: "",
+      AddresLine1: "",
+      AddresLine2: "",
+      Zip:"",
+      City: "",
+      Country: "",
+      Birthdate: "",
+      Nationality: "",
+      Height: "",
+      ShoeSize: "",
+      HairColor: "",
+      EyeColor: "",
+      Comments: "",
+      Password: ""
     };
+  },
+  methods: {
+    async addModel() {
+      let form = {
+        FirstName: this.FirstName,
+        LastName: this.LastName,
+        Email: this.Email,
+        PhoneNo: this.PhoneNo,
+        AddresLine1: this.AddresLine1,
+        AddresLine2: this.AddresLine2,
+        Zip: this.Zip,
+        City: this.City,
+        Country: this.Country,
+        Birthdate: this.Birthdate,
+        Nationality: this.Nationality,
+        Height: this.Height,
+        ShoeSize: this.ShoeSize,
+        HairColor: this.HairColor,
+        EyeColor: this.EyeColor,
+        Comments: this.Comments,
+        Password: this.Password
+      };
+      let url = "https://localhost:44368/api/models";
+      try {
+        await fetch(url, {
+          method: "POST",
+          body: JSON.stringify(form),
+          headers: new Headers({
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          }),
+        });
+      } catch (err) {
+        alert("Error: " + err);
+      }
+      return;
+    },
   },
 };
 </script>
